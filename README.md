@@ -1,64 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## This project is divided into 2 parts:
+	-# PartOne: (I die dump all the data -- in postman you need to choose "Preview")
+		- a. A GET api that have two parameters, start number and
+			the end number and should return the count of all numbers
+			except numbers with a 5 in it.
+			
+			- http://127.0.0.1:8000/api/twoNumbss?number_one=10&number_two=30
+			- insert 2 numbers
+			- you'll get the range of numbers between them except numbers with 5 in them
+			
+		- b. a GET api that have one parameter named input_string.
+			that have the alphabetic string you should return the index of this
+			string. 
+			-- ex: if input = "BFG" --> the output should be 1515
+			
+			- http://127.0.0.1:8000/api/letters?string=BFG
+			- insert a string
+			- the output is the index of this string, as shown in the example
+			
+		- c. Create a method to  minimum number of moves required to reduce the value of X to 0.
+			Where X is the element of an input array
+			-- ex: if input array = [3, 4] ---> the output = [3, 3]
+			
+			- http://127.0.0.1:8000/api/toZero
+			- input an array of numbers, and its length
+			- output array determining the min number of moves required to reduce the value of each element to 0
+			
+	-# PartTwo:
+		- Create a new api for Authenticating a User
+			- make a post api to register a user api will require (email, user name, date of birth, phone number, password)
+				- http://127.0.0.1:8000/api/admin/register
+				- the body should be as follows:
+					{
+						"email": "menna@m.com",
+						"userName": "menna",
+						"dateOfBirth": "04/01/1999",
+						"phoneNumber": "01000000000",
+						"password": "123456789_Ab"
+					}
+				- the response should be as follows:
+					{
+						"message": "user is added successfully",
+						"user": {
+							"id": 5,
+							"userName": "menna",
+							"email": "menna@m.com",
+							"password": "$2y$10$C6aGltmCHWjCw9Cky9CgIOT.M.tb/gpqVE9cLgetDIOB8jdWQ00Cq",
+							"dateOfBirth": "04/01/1999",
+							"phoneNumber": "01000000000",
+							"created_at": "2022-12-30 23:49:49",
+							"updated_at": "2022-12-30 23:49:49"
+						}
+					}
+			- Make an api for user log in
+				- http://127.0.0.1:8000/api/admin/login
+				- body:
+					{
+						"email": "menna@m.com",
+						"password": "123456789_Ab"
+					}
+				- response:
+					{
+						"user": {
+							"id": 6,
+							"userName": "menna",
+							"email": "menna@m.com",
+							"dateOfBirth": "04/01/1999",
+							"phoneNumber": "01000000000",
+							"created_at": "2022-12-31T00:01:00.000000Z",
+							"updated_at": "2022-12-31T00:01:00.000000Z"
+						},
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGQ2MTM3MGQ2ZWI0ZmNmYjcyYTRkNjIwOWVjZmE0YTc5ZmU2OWVhOWVmNjc3NDNhZmM4ZTJhOTQ1M2YzMGVhMDRhNDJkYmZlNDU5YWEyNDQiLCJpYXQiOjE2NzI0NDUwMTkuMjM0NTE2LCJuYmYiOjE2NzI0NDUwMTkuMjM0NTI0LCJleHAiOjE3MDM5ODEwMTkuMjIzNTMzLCJzdWIiOiI2Iiwic2NvcGVzIjpbXX0.oxLCYWiH3yNRqAMdj9RQ2IcuKR1ByPbtdIu01ij0y70mePXi26eqPrvD_vvzmr6NAk9YpSTZbxlmcsLMHLOkxLpX1eQgWvFVRaoEYu4eJuTtbQecoKU1I16dgbBb1KW-M8BjfROGd2M-mOwjbEl2NJwaDUsN2VFRf81OjYwFd2S7k-Em-UQstyeiA2FaqRqjurGPZGyrGJdMlNCYBQbvVpknM6sxBoZu83vR25zHXhG7_Y7HZQqjHxu3z-ZQzYKG8_8BU9SLhQz62fTK8w4a761e7ix-MFteuEr9ZgXufGgDImhHu9QeFoHEeT6N_Rcx5ei3PEi6thGrZiCaaYYe5bWQdmzSSC6YlxdtJRvpvifwIwfNu5KRMKEAfR4KnXessQN66pTuhRY0lbQfB6Lv4oCrxDjYogT6fG9NJ3sTo5A3sqM5WqDcCZaLh3xPK733hzvSHyWTlSm44RHneG-Hn99PTzV1UwsxXaJDM31kwynq98DjMbF5L9bY2OpCGhs7IEvL1DyjvkmbqFh7pBmlqPDKa6sz-2qfzMn8hEVOQVqS5W3Eysaf0UhMMprrhK_L00pfNFDFchtAXavMp85ly5g6lyyEPqhG6Dwlj4RN1r52OQ7la_iiLHdJiiRbquEH8VYN7p5tp8FjHLAIbI-VG-dfwcUHckP2y81k7SLGNYI"
+					}
+			- make an api the will get a user by its ID
+				- http://127.0.0.1:8000/api/admin/showUser/6
+				- no body ... token is a bearer token
+				- the response is the user
+			- make an api that will get all users
+				- http://127.0.0.1:8000/api/admin/getUsers
+				- no body ... token is a bearer token
+				- the response is all the users
+			- make an api that will update user
+				- http://127.0.0.1:8000/api/admin/update/6
+				- body is whatever attributes you want to update
+				- response is the user with its new data, and a message saying the user is successfully updated
+			- make an api that will delete user
+				- http://127.0.0.1:8000/api/admin/delete/7
+				- no body
+				- response is a message saying the user is successfully deleted
